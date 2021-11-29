@@ -1,0 +1,24 @@
+{
+"Driver" :"Symmetricom 5115A",
+"Channel" :"1/1",
+"Time/Date" :"4/9/2012 6:57:38 PM",
+ "MJD" : 56026.95680392361,
+ "Trace" : "HP5065A vs. BVA",
+ "Notes": "", 
+"Sample Interval": 0.1,
+"Data Type" : 0,
+ "Scale Factor" : 1.0,
+ "Input Freq" : 5e6,
+ "Bin Density" : 29,
+"Bin Threshold" : 4,
+ "Trace History" : 1,
+"Address" :"femto.febo.com:1298",
+"Instrument" : "TSC-5120A",
+ "Duration" : 86400000000,
+"Duration Type" : 5,
+ "Stop Condition" : 0,
+"Sample Rate" : 1000,
+ "Unwrapped" : true,
+ "packets": ["1234", "532345", "64565"]
+
+} 
