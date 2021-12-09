@@ -1,0 +1,20 @@
+[
+{
+"Factory" :"US_Factory",
+"Machine" :"Choclate_conveyor",
+"Temperature" : 30,
+"Speed" : 0.6
+},
+{
+"Factory" :"US_Factory",
+"Machine" :"hard_candy_conveyor",
+"Temperature" : 40,
+"Speed" : 0.4
+},
+{
+"Factory" :"UK_Factory",
+"Machine" :"Choclate_conveyor",
+"Temperature" : 28,
+"Speed" : 0.5
+}
+]
