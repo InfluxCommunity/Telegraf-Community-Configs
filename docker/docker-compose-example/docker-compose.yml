@@ -1,0 +1,54 @@
+version: '3.9'
+services:
+  telegraf-opc-ua:
+    image: telegraf:latest
+    environment:
+      - INFLUX_HOST=http://docker-compose-example_influxdb-v2_1:8086
+      - INFLUX_ORG=ManufactureAndCo
+      - INFLUX_TOKEN=superSecureToken
+      - INFLUX_BUCKET=machines
+    volumes:
+      - ./opc_ua_machines.conf:/etc/telegraf/telegraf.conf:ro
+    networks:
+      - telegraf
+  telegraf-modbus:
+    image: telegraf:latest
+    environment:
+      - INFLUX_HOST=http://docker-compose-example_influxdb-v2_1:8086
+      - INFLUX_ORG=ManufactureAndCo
+      - INFLUX_TOKEN=superSecureToken
+      - INFLUX_BUCKET=sensors
+    volumes:
+      - ./modbus_sensors.conf:/etc/telegraf/telegraf.conf:ro
+    networks:
+      - telegraf
+  telegraf-system:
+    image: telegraf:latest
+    environment:
+      - INFLUX_HOST=http://docker-compose-example_influxdb-v2_1:8086
+      - INFLUX_ORG=ManufactureAndCo
+      - INFLUX_TOKEN=superSecureToken
+      - INFLUX_BUCKET=system
+    volumes:
+      - ./system_performance.conf:/etc/telegraf/telegraf.conf:ro
+    networks:
+      - telegraf
+  influxdb-v2:
+    image: influxdb:latest
+    volumes:
+      # Mount for influxdb data directory and configuration
+      - ./influx-v2:/var/lib/influxdb2:rw
+    ports:
+      - "8086:8086"
+    environment:
+      - DOCKER_INFLUXDB_INIT_MODE=setup 
+      - DOCKER_INFLUXDB_INIT_USERNAME=SiteManager
+      - DOCKER_INFLUXDB_INIT_PASSWORD=SiteManager
+      - DOCKER_INFLUXDB_INIT_ORG=ManufactureAndCo
+      - DOCKER_INFLUXDB_INIT_BUCKET=system
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=superSecureToken
+    networks:
+      - telegraf
+networks: 
+  telegraf:
+    name: telegraf
