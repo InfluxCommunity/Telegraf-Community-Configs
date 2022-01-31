@@ -2,3 +2,5 @@
 .env-local
 .env-cloud-mike
 tmp
+.env-thing-network
+.env-cloud
