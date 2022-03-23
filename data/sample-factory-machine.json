@@ -1,7 +1,7 @@
 [
 {
 "Factory" :"US_Factory",
-"Machine" :"Choclate_conveyor",
+"Machine" :"chocolate_conveyor",
 "Temperature" : 30,
 "Speed" : 0.6
 },
@@ -13,7 +13,7 @@
 },
 {
 "Factory" :"UK_Factory",
-"Machine" :"Choclate_conveyor",
+"Machine" :"chocolate_conveyor",
 "Temperature" : 28,
 "Speed" : 0.5
 }

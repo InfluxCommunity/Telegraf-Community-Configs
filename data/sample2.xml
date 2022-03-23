@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<device>
+<Mac>00:0b:6b:ee</Mac>
+<Serial>40111</Serial>
+<Venue>US</Venue>
+<Name>tReport</Name>
+<BuildNum>01.03.34.00</BuildNum>
+<version>3.0</version>
+<SystemId>proxy1</SystemId>
+<BinStartTime>1512476653</BinStartTime>
+   <Report>
+      <Bins>
+         <DurationSec>900</DurationSec>
+         <NetworksViews>
+            <SuccSum>103</SuccSum>
+            <NbrSum>105</NbrSum>
+            <GpsLocked>120</GpsLocked>
+         </NetworksViews>
+         <Number>12</Number>
+         <StartTime>1514368800</StartTime>
+         <StartSec>60</StartSec>
+      </Bins>
+      <Bins>
+        <DurationSec>901</DurationSec>
+        <NetworksViews>
+           <SuccSum>104</SuccSum>
+           <NbrSum>106</NbrSum>
+           <GpsLocked>120</GpsLocked>
+        </NetworksViews>
+        <Number>13</Number>
+        <StartTime>1514368800</StartTime>
+        <StartSec>60</StartSec>
+     </Bins>
+   </Report>
+</device>
