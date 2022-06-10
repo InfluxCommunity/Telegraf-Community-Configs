@@ -1,12 +1,15 @@
 ﻿# Telegraf Config Examples
 
 <img align="right" width="250" height="250" src="docs/img/telegraf-mascot-1.png">
+
 This repository contains a collection of Telegraf configs based on:
  - Real world examples
  - Community questions
  - Platform integrations
  
-The purpose of this repository is to promote the creation, sharing, and reuse of configs among the Telegraf community. Anybody can submit new configs or improvements upon existing configs and use these configs in their own architectures.
+ 
+The purpose of this repository is to promote the creation, sharing, and reuse of configs among the Telegraf community. 
+Anybody can submit new configs or improvements upon existing configs and use these configs in their own architectures.
 
 ## Configs
 | CONFIG | DESCRIPTION | AUTHOR |
@@ -30,6 +33,8 @@ To submit a new config, see our  [contributing guide](https://github.com/influxd
 
 You can also ask the community to create a config for a specific use-case by creating a  [Config Request](https://github.com/influxdata/community-templates/issues/new?template=template-request.md&labels=Template+Request).
 ## Test Data
+<img align="right" width="250" height="300" src="docs/img/telegraf-mascot-2.png">
+
 Some configs make use of example data which is provided under the [data directory](https://github.com/InfluxCommunity/Telegraf_Configs/tree/master/data). When community members contribute configs its worth adding testdata here when appropriate.
 
 
