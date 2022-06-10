@@ -1,4 +1,4 @@
-﻿# Telegraf Config Examples
+﻿# Telegraf Community Configs
 
 <img align="right" width="250" height="250" src="docs/img/telegraf-mascot-1.png">
 
