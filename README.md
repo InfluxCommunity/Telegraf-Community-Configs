@@ -24,7 +24,7 @@ The purpose of this repository is to promote the creation, sharing, and reuse of
 |[Plant Buddy](https://github.com/InfluxCommunity/Telegraf_Configs/tree/master/plant_buddy) | Configs related to connecting to the Plant Buddy Project.| [@Jayclifford345](https://github.com/Jayclifford345)
 |[SNMP](https://github.com/InfluxCommunity/Telegraf_Configs/tree/master/snmp) | A collection of configs for connecting and parsing using the SNMP plugins.| [@Hipska](https://github.com/Hipska), [@Jayclifford345](https://github.com/Jayclifford345)
 |[Stock Metrics](https://github.com/InfluxCommunity/Telegraf_Configs/tree/master/stock_metrics) | A collection of configs for working with Stock Metrics.| [@Jayclifford345](https://github.com/Jayclifford345)
-|
+
 To submit a new config, see our  [contributing guide](https://github.com/influxdata/community-templates/blob/master/docs/submit_a_template.md).
 
 You can also ask the community to create a config for a specific use-case by creating a  [Config Request](https://github.com/influxdata/community-templates/issues/new?template=template-request.md&labels=Template+Request).
