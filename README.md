@@ -1,5 +1,6 @@
 ﻿# Telegraf Config Examples
 
+<img align="right" width="250" height="250" src="docs/img/telegraf-mascot-1.png">
 This repository contains a collection of Telegraf configs based on:
  - Real world examples
  - Community questions
