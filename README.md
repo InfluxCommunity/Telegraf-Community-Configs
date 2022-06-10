@@ -31,7 +31,7 @@ Anybody can submit new configs or improvements upon existing configs and use the
 
 To submit a new config, see our  [contributing guide](https://github.com/influxdata/community-templates/blob/master/docs/submit_a_template.md).
 
-You can also ask the community to create a config for a specific use-case by creating a  [Config Request](https://github.com/influxdata/community-templates/issues/new?template=template-request.md&labels=Template+Request).
+You can also ask the community to create a config for a specific use-case by creating a [config Request](https://github.com/influxdata/community-templates/issues/new?template=config-request.md&labels=request).
 ## Test Data
 <img align="right" width="250" height="300" src="docs/img/telegraf-mascot-2.png">
 
