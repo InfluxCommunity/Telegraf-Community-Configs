@@ -5,7 +5,7 @@ This repository contains a collection of Telegraf configs based on:
  - Community questions
  - Platform integrations
  
-The purpose of this repository is to promote the creation, sharing, and reuse of configs among the Telegraf community. Anybody can submit new templates or improvements upon existing configs and use these configs in their own architectures.
+The purpose of this repository is to promote the creation, sharing, and reuse of configs among the Telegraf community. Anybody can submit new configs or improvements upon existing configs and use these configs in their own architectures.
 
 ## Configs
 | CONFIG | DESCRIPTION | AUTHOR |
