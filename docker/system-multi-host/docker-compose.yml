@@ -1,0 +1,22 @@
+version: '3.9'
+services:
+  telegraf-system:
+    image: telegraf:latest
+    user: telegraf
+    volumes:
+      - ./system_performance.conf:/etc/telegraf/telegraf.conf:ro
+  telegraf-system-2:
+    image: telegraf:latest
+    user: telegraf
+    volumes:
+      - ./system_performance.conf:/etc/telegraf/telegraf.conf:ro
+    networks:
+      - telegraf
+  telegraf-system-3:
+    image: telegraf:latest
+    user: telegraf
+    volumes:
+      - ./system_performance.conf:/etc/telegraf/telegraf.conf:ro
+networks: 
+  telegraf:
+    name: telegraf

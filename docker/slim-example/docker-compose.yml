@@ -1,7 +1,8 @@
 version: '3.9'
 services:
   telegraf-system:
-    image: telegraf:alpine
+    image: telegraf:test
+    user: telegraf
     volumes:
       - ./system_performance.conf:/etc/telegraf/telegraf.conf:ro
       - ./container_stats:/tmp/:rw

@@ -1,0 +1,9 @@
+{
+    "timestamp":1656879450,
+    "location":"house_a",
+    "data":
+    [
+        {"sensor_id":1, "outside_temp": 10},
+        {"sensor_id":2, "inside_temp": 20}        
+    ]
+}
