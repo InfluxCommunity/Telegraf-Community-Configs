@@ -1,0 +1,5 @@
+basicConstraints=CA:TRUE
+authorityKeyIdentifier=keyid,issuer
+keyUsage=dataEncipherment,keyEncipherment,nonRepudiation,digitalSignature,keyCertSign,cRLSign
+extendedKeyUsage=serverAuth,clientAuth
+subjectAltName=URI:urn:telegraf:gopcua:client
