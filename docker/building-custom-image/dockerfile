@@ -1,0 +1,2 @@
+FROM telegraf:latest
+COPY ./system_performance.conf /etc/telegraf/telegraf.conf
