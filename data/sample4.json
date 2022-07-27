@@ -1,0 +1,16 @@
+{
+    "host": {
+      "ip": "192.168.2.1",
+      "hostname": "abc"
+    },
+    "inf": [
+      {
+        "name": "test1",
+        "last_update": "2022-06-24T13:44:21Z"
+      },
+      {
+        "name": "test2",
+        "last_update": "2022-06-23T13:44:21Z"
+      }
+    ]
+}
