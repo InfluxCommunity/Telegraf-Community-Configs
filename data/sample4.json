@@ -6,11 +6,14 @@
     "inf": [
       {
         "name": "test1",
-        "last_update": "2022-06-24T13:44:21Z"
+        "last_update": "2022-06-24T13:44:21Z",
+        "nested_tag": "A"
+
       },
       {
         "name": "test2",
-        "last_update": "2022-06-23T13:44:21Z"
+        "last_update": "2022-06-23T13:44:21Z",
+        "nested_tag": "B"
       }
     ]
 }
