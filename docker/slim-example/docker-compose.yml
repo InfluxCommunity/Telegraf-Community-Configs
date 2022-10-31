@@ -1,7 +1,7 @@
 version: '3.9'
 services:
   telegraf-system:
-    image: telegraf:test
+    image: telegraf:latest
     user: telegraf
     volumes:
       - ./system_performance.conf:/etc/telegraf/telegraf.conf:ro
