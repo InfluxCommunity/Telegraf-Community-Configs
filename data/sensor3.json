@@ -1,0 +1,16 @@
+[{
+	"id": "01",
+	"temperature": "19.41",
+	"pressure": "990.48",
+	"humidity": "42.793",
+	"gas_resistance": "12535991.793939594",
+	"type": "BME680"
+}, {
+	"id": "02",
+	"temperature": "23.21",
+	"type": "1wire"
+}, {
+	"id": "03",
+	"temperature": "16.11",
+	"type": "1wire"
+}]
