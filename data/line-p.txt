@@ -1,0 +1,1 @@
+NPM_Port,Network=n1,Name=port1,Device_Category=Firewall,Tstatus=Up status="Up",mtu=1500i,InBandwidth=2000000000.0000,OutBandwidth=2000000000.0000,outBps=2050.1516,inBps=2107.7522,bps=4157.9040,outPps=2.0667,inPps=2.1867,inPktSize=120.0000,outPktSize=124.0000,outUcastPps=2.0667,outMcastPps=0.0000,inUcastPps=2.1200,inMcastPps=0.0667 1671527674000000000
