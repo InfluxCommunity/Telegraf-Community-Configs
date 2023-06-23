@@ -5,3 +5,4 @@ tmp
 .env-thing-network
 .env-cloud
 telegraf
+.venv
