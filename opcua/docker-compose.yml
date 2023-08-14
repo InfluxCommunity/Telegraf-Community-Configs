@@ -1,0 +1,57 @@
+version: '3'
+
+services:
+  opcplc:
+    image: mcr.microsoft.com/iotedge/opc-plc:latest
+    container_name: opcplc
+    command:
+      - "--pn=50000"
+      - "--autoaccept"
+      - "--sph"
+      - "--sn=5"
+      - "--sr=10"
+      - "--st=uint"
+      - "--fn=5"
+      - "--fr=1"
+      - "--ft=uint"
+      - "--gn=5"
+      - "--trustowncert"
+      - "--dontrejectunknownrevocationstatus"
+      - "--unsecuretransport"
+      - "--appcertstoretype=Directory"
+    ports:
+      - "50000:50000"
+      - "8081:8080"
+    volumes:
+      - ./opcua/store:/app/pki
+    restart: unless-stopped
+
+  telegraf:
+    image: telegraf:latest
+    container_name: telegraf
+    volumes:
+       - ./telegraf/telegraf.conf:/etc/telegraf/telegraf.conf
+       - ./telegraf/public.pem:/etc/telegraf/public.pem
+       - ./telegraf/default_pk.pem:/etc/telegraf/default_pk.pem
+    restart: unless-stopped
+
+  telegraf-anon:
+    image: telegraf:latest
+    container_name: telegraf-anon
+    volumes:
+       - ./telegraf/telegraf-anon.conf:/etc/telegraf/telegraf.conf
+    restart: unless-stopped
+  
+  influxdb:
+    image: influxdb:latest
+    ports:
+      - 8086:8086
+    environment:
+      - DOCKER_INFLUXDB_INIT_MODE=setup 
+      - DOCKER_INFLUXDB_INIT_USERNAME=demouser
+      - DOCKER_INFLUXDB_INIT_PASSWORD=demouser
+      - DOCKER_INFLUXDB_INIT_ORG=demo 
+      - DOCKER_INFLUXDB_INIT_BUCKET=plc
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=edge
+      - DOCKER_INFLUXDB_INIT_RETENTION=1d
+  
