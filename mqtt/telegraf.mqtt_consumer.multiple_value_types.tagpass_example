@@ -1,0 +1,87 @@
+I have home-assistant working with mqtt auto-discovery which is why the particular mqtt topic layout. 
+I wanted to store my sensor information which lead me to influxdb and telegraf, but found it very hard to find a example to get telegraf mqtt_consumer to work with multiple data types. this example stores (string,float,integer) all in the same bucket.
+Also to help understand the namepass,tagpass,fieldpass measurement filters ive got multiple examples using the same data
+
+2023 04 22 telegraf
+#metric filtering(measurement filtering), example tagpass
+#tagpass: A table mapping tag keys to arrays of glob pattern strings. Only points that contain a tag key in the table and a tag value matching one of its patterns is emitted.
+
+#### subscribed topics (MQTT)
+homeassistant/sensor/+/+/state
+homeassistant/binary_sensor/+/+/state
+homeassistant/switch/+/+/state
+
+#### Input data (MQTT)
+homeassistant/sensor/esp32dkc/temperature/state:21.87
+homeassistant/sensor/esp32dkc/humidity/state:59.62
+homeassistant/sensor/esp32dkc/pressure/state:102027
+homeassistant/sensor/esp32dkc/gas/state:673
+homeassistant/binary_sensor/esp32dkc/buzzer/state:"OFF"
+homeassistant/switch/esp32dkc/button/state:"OFF"
+
+#### Telegraf mqtt configuration
+[[inputs.mqtt_consumer]]
+  client_id = "telegraf"
+  username = ""
+  password = ""
+  servers = ["tcp://127.0.0.1:1883"]
+  qos = 2
+  topics = [
+    "homeassistant/sensor/+/+/state",
+    "homeassistant/bianry_sensor/+/+/state",
+    "homeassistant/switch/+/+/state",
+  ]
+  #set default data format/type (required)
+  data_format = "value"
+  data_type = "string"
+
+[[inputs.mqtt_consumer.topic_parsing]]
+  topic = "homeassistant/sensor/+/+/state"
+  measurement = "_/_/+/_/_"
+  tags = "_/_/_/sensor_type/_"
+
+[[inputs.mqtt_consumer.topic_parsing]]
+  topic = "homeassistant/binary_sensor/+/+/state"
+  measurement = "_/_/+/_/_"
+  tags = "_/_/_/sensor_type/_"
+
+[[inputs.mqtt_consumer.topic_parsing]]
+  topic = "homeassistant/switch/+/+/state"
+  measurement = "_/_/+/_/_"
+  tags = "_/_/_/sensor_type/_"
+
+[processors]
+
+[[processors.converter]]
+  order = 1
+  [processors.converter.tagpass]
+    sensor_type = ["temperature", "humidity"]
+  [processors.converter.fields]
+    float = ["value"]
+
+[[processors.converter]]
+  order = 2
+  [processors.converter.tagpass]
+    sensor_type = ["pressure", "gas"]
+  [processors.converter.fields]
+    integer = ["value"]
+
+#change value=21.87 to temperature=21.87 (pivot removes sensor_type tag, must be processed last)
+[[processors.pivot]]
+  order = 3
+  tag_key = "sensor_type"
+  value_key = "value"
+
+
+#### Output data
+temperature,device_id=esp32dkc,topic=homeassistant/sensor/esp32dkc/temperature/state temperature=21.87 0000000000
+humidity,device_id=esp32dkc,topic=homeassistant/sensor/esp32dkc/humidity/state humidity=59.62 0000000000
+pressure,device_id=esp32dkc,topic=homeassistant/sensor/esp32dkc/pressure/state pressure=102027i 0000000000
+gas,device_id=esp32dkc,topic=homeassistant/sensor/esp32dkc/gas/state gas=673i 0000000000
+buzzer,device_id=esp32dkc,topic=homeassistant/binary_sensor/esp32dkc/buzzer/state buzzer="OFF" 0000000000
+button,device_id=esp32dkc,topic=homeassistant/switch/esp32dkc/button/state button="OFF" 0000000000
+
+
+#### Influxdb line protocol reference
+measurement| tag set           | field set           | timestamp
+measurement,tag1=val1,tag2=val2 field1="v1",field2=1i 0000000000000000000
